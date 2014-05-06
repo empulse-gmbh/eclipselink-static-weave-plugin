@@ -4,7 +4,7 @@
 	<groupId>de.empulse.eclipselink</groupId>
 	<artifactId>staticweave-maven-plugin</artifactId>
 	<packaging>maven-plugin</packaging>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>eclipselink-staticweave-maven-plugin Maven Plugin</name>
 	<url>http://maven.apache.org</url>
 
@@ -131,15 +131,33 @@
 
 Compatible with Java 7 + 8 and Maven 3.x.</description>
 
-	<distributionManagement>
-		<repository>
-			<id>empulse-releases</id>
-			<url>http://nexus.empulse.de/nexus/content/repositories/empulse-releases</url>
-		</repository>
-		<snapshotRepository>
-			<id>empulse-snapshots</id>
-			<url>http://nexus.empulse.de/nexus/content/repositories/empulse-snapshots</url>
-		</snapshotRepository>
-	</distributionManagement>
+
+	<scm>
+		<url>scm:git:https://github.com/empulse-gmbh/eclipselink-static-weave-plugin.git</url>
+		<developerConnection>Christoph Guse</developerConnection>
+	</scm>
+	<issueManagement>
+		<url>https://github.com/empulse-gmbh/eclipselink-static-weave-plugin/issues</url>
+	</issueManagement>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+			<comments>A business-friendly OSS license</comments>
+		</license>
+	</licenses>
+	
+	<organization>
+		<name>empulse GmbH</name>
+		<url>http://www.empulse.de</url>
+	</organization>
+	
+	<developers>
+		<developer>
+			<name>Christoph Guse</name>
+		</developer>
+	</developers>
 
 </project>
