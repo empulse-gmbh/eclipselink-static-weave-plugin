@@ -1,4 +1,4 @@
-#Introduction
+# Introduction
 Plugin which performs Eclipselink static weaving. Use the weave goal to execute. 
 
 Heavily inspired by https://code.google.com/p/eclipselink-staticweave-maven-plugin. 
@@ -8,7 +8,7 @@ Internally the StaticWeaveProcessor is used, like described in the EclipseLink W
 
 Do not forget to add EclipseLink as dependency, otherwise the EclipseLink StaticWeaveProcessor is not found. 
 
-#Common Usage
+# Common Usage
 ```xml
  <build>
    	...
@@ -43,18 +43,18 @@ Do not forget to add EclipseLink as dependency, otherwise the EclipseLink Static
    	...
  </build>
 ```
-#Plugin Options
+# Plugin Options
 
-##persistenceXMLLocation
+## persistenceXMLLocation
 Give here the location of your persistence.xml file. This property is optional. If not set the default location META-INF/persistence.xml is used.
 
-##source
+## source
 The location of the JPA classes. This property is optional, default value is ${project.build.outputDirectory}.
 
-##target
+## target
 The location for the weaved classes. This property is optional, default value is ${project.build.outputDirectory}.
 
-##logLevel
+## logLevel
 The Logging level of the used EclipseLink StaticWeave class. This property is optional, default value is FINE to get informed which JPA classes were woven.
 	 
 Possible values:
