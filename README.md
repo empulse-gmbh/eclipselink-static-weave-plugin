@@ -70,3 +70,5 @@ Possible values:
 * ALL
 
 The EclipseLink logging information is always given in Maven INFO loglevel.
+
+Happy weaving!
