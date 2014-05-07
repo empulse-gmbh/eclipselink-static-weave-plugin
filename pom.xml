@@ -1,12 +1,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>9</version>
+	</parent>
+
 	<groupId>de.empulse.eclipselink</groupId>
 	<artifactId>staticweave-maven-plugin</artifactId>
 	<packaging>maven-plugin</packaging>
 	<version>1.0.0</version>
 	<name>eclipselink-staticweave-maven-plugin Maven Plugin</name>
 	<url>http://maven.apache.org</url>
+
 
 
 	<properties>
@@ -133,8 +141,9 @@ Compatible with Java 7 + 8 and Maven 3.x.</description>
 
 
 	<scm>
-		<url>scm:git:https://github.com/empulse-gmbh/eclipselink-static-weave-plugin.git</url>
-		<developerConnection>Christoph Guse</developerConnection>
+		<connection>scm:git:https://github.com/empulse-gmbh/eclipselink-static-weave-plugin.git</connection>
+		<url>https://github.com/empulse-gmbh/eclipselink-static-weave-plugin</url>
+		<developerConnection>scm:git:https://github.com/empulse-gmbh/eclipselink-static-weave-plugin.git</developerConnection>
 	</scm>
 	<issueManagement>
 		<url>https://github.com/empulse-gmbh/eclipselink-static-weave-plugin/issues</url>
@@ -148,12 +157,12 @@ Compatible with Java 7 + 8 and Maven 3.x.</description>
 			<comments>A business-friendly OSS license</comments>
 		</license>
 	</licenses>
-	
+
 	<organization>
 		<name>empulse GmbH</name>
 		<url>http://www.empulse.de</url>
 	</organization>
-	
+
 	<developers>
 		<developer>
 			<name>Christoph Guse</name>
