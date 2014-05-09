@@ -145,9 +145,6 @@ Compatible with Java 7 + 8 and Maven 3.x.</description>
 						<id>sign-artifacts</id>
 						<phase>verify</phase>
 						<configuration>
-						<gpgArguments>
-							<arg>-batch</arg>
-						</gpgArguments>
 						</configuration>
 						<goals>
 							<goal>sign</goal>
