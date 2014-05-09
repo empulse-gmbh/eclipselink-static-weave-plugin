@@ -1,16 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
-	<parent>
-		<groupId>org.sonatype.oss</groupId>
-		<artifactId>oss-parent</artifactId>
-		<version>9</version>
-	</parent>
 
 	<groupId>de.empulse.eclipselink</groupId>
 	<artifactId>staticweave-maven-plugin</artifactId>
 	<packaging>maven-plugin</packaging>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>eclipselink-staticweave-maven-plugin Maven Plugin</name>
 	<url>http://maven.apache.org</url>
 
@@ -21,6 +16,47 @@
 		<java.version>1.7</java.version>
 		<eclipselink.version>2.5.1</eclipselink.version>
 	</properties>
+
+	<description>Maven Plugin for static weaving with EclipseLink.
+
+Compatible with Java 7 + 8 and Maven 3.x.</description>
+
+
+	<scm>
+		<connection>scm:git:git@github.com:empulse-gmbh/eclipselink-static-weave-plugin.git</connection>
+		<url>https://github.com/empulse-gmbh/eclipselink-static-weave-plugin</url>
+		<developerConnection>scm:git:git@github.com:empulse-gmbh/eclipselink-static-weave-plugin.git</developerConnection>
+	</scm>
+	<issueManagement>
+		<url>https://github.com/empulse-gmbh/eclipselink-static-weave-plugin/issues</url>
+	</issueManagement>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+			<comments>A business-friendly OSS license</comments>
+		</license>
+	</licenses>
+
+	<organization>
+		<name>empulse GmbH</name>
+		<url>http://www.empulse.de</url>
+	</organization>
+
+	<developers>
+		<developer>
+			<name>Christoph Guse</name>
+		</developer>
+	</developers>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<build>
 		<finalName>eclipselink-staticweave-maven-plugin</finalName>
@@ -57,6 +93,60 @@
 							<goal>helpmojo</goal>
 						</goals>
 						<phase>process-classes</phase>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.1</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>ossrh</serverId>
+					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+					<autoReleaseAfterClose>true</autoReleaseAfterClose>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.2.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9.1</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
 					</execution>
 				</executions>
 			</plugin>
@@ -146,38 +236,6 @@
 		</dependency>
 
 	</dependencies>
-	<description>Maven Plugin for static weaving with EclipseLink.
 
-Compatible with Java 7 + 8 and Maven 3.x.</description>
-
-
-	<scm>
-		<connection>scm:git:git@github.com:empulse-gmbh/eclipselink-static-weave-plugin.git</connection>
-		<url>https://github.com/empulse-gmbh/eclipselink-static-weave-plugin</url>
-		<developerConnection>scm:git:git@github.com:empulse-gmbh/eclipselink-static-weave-plugin.git</developerConnection>
-	</scm>
-	<issueManagement>
-		<url>https://github.com/empulse-gmbh/eclipselink-static-weave-plugin/issues</url>
-	</issueManagement>
-
-	<licenses>
-		<license>
-			<name>Apache License, Version 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-			<distribution>repo</distribution>
-			<comments>A business-friendly OSS license</comments>
-		</license>
-	</licenses>
-
-	<organization>
-		<name>empulse GmbH</name>
-		<url>http://www.empulse.de</url>
-	</organization>
-
-	<developers>
-		<developer>
-			<name>Christoph Guse</name>
-		</developer>
-	</developers>
 
 </project>
