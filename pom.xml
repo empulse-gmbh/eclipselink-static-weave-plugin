@@ -5,7 +5,7 @@
 	<groupId>de.empulse.eclipselink</groupId>
 	<artifactId>staticweave-maven-plugin</artifactId>
 	<packaging>maven-plugin</packaging>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<name>eclipselink-staticweave-maven-plugin Maven Plugin</name>
 	<url>http://maven.apache.org</url>
 
