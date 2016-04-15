@@ -19,7 +19,6 @@ Do not forget to add EclipseLink as dependency, otherwise the EclipseLink Static
  				<version>1.0.0</version>
  				<executions>
  					<execution>
- 						<phase>process-classes</phase>
  						<goals>
  							<goal>weave</goal>
  						</goals>
