@@ -105,9 +105,6 @@ public class EclipselinkStaticWeaveMojo extends AbstractMojo {
 	 * Give here the location of your persistence.xml file. This property is
 	 * optional. If not set the default location META-INF/persistence.xml is
 	 * used.
-	 * 
-	 * <pre>
-	 * </pre>
 	 */
 	@Parameter(property = "weave.persistenceXMLLocation")
 	private String persistenceXMLLocation;
@@ -151,6 +148,12 @@ public class EclipselinkStaticWeaveMojo extends AbstractMojo {
 	private String logLevel;
 
 	/**
+	 * Set this to {@code true} to bypass weaving.
+	 */
+	@Parameter(property = "weave.skip", defaultValue = "false")
+	private boolean skip;
+
+	/**
 	 * The Maven project to have environment information like the classpath.
 	 * This property is set by maven.
 	 */
@@ -162,6 +165,11 @@ public class EclipselinkStaticWeaveMojo extends AbstractMojo {
 	 * StaticWeaveProcessor which does the weaving.
 	 */
 	public void execute() throws MojoExecutionException {
+
+		if (skip) {
+			getLog().info("Skipping EclipseLink static weaving.");
+			return;
+		}
 
 		try {
 
@@ -233,7 +241,7 @@ public class EclipselinkStaticWeaveMojo extends AbstractMojo {
 					"MavenProject is empty, unable to build ClassPath. No Models can be woven.");
 
 		} else {
-			Set<Artifact> artifacts = (Set<Artifact>) project.getArtifacts();
+			Set<Artifact> artifacts = project.getArtifacts();
 			for (Artifact a : artifacts) {
 				urls.add(a.getFile().toURI().toURL());
 			}
